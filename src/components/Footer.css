@@ -1,0 +1,61 @@
+/* src/components/Footer.css */
+
+.footer {
+    background-color: #100D28; /* Dark background */
+    color: #FFFFFF; /* White text */
+    padding: 40px 20px; /* Padding for the footer */
+    text-align: center; /* Center text */
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between; /* Space out sections */
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    max-width: 1200px; /* Max width for the footer */
+    margin: 0 auto; /* Center the footer */
+}
+
+.footer-section {
+    flex: 1; /* Allow sections to grow */
+    margin: 10px; /* Margin between sections */
+}
+
+.footer-title {
+    font-size: 1.5em; /* Title size */
+    color: #FF00E2; /* Pink color for titles */
+    margin-bottom: 10px; /* Space below titles */
+}
+
+.social-icons {
+    display: flex; /* Flexbox for social icons */
+    justify-content: center; /* Center the icons */
+    gap: 20px; /* Space between icons */
+}
+
+.social-item {
+    display: flex;
+    flex-direction: column; /* Stack icon and text */
+    align-items: center; /* Center items */
+    color: #FFFFFF; /* White icons */
+}
+
+.footer-links {
+    list-style: none; /* Remove bullet points */
+    padding: 0; /* Remove padding */
+}
+
+.footer-link {
+    color: #FF00E2; /* Pink link color */
+    text-decoration: none; /* Remove underline */
+}
+
+.footer-link:hover {
+    text-decoration: underline; /* Underline on hover */
+    color: #FF00E2; /* Maintain pink color on hover */
+}
+
+.footer-bottom {
+    margin-top: 20px; /* Space above copyright */
+    font-size: 14px; /* Smaller font size */
+    color: #CCCCCC; /* Light gray for copyright text */
+}

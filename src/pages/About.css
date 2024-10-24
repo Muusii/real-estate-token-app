@@ -1,0 +1,48 @@
+/* src/pages/About.css */
+
+.about {
+    padding: 20px;
+    background-size: cover; /* Cover the entire area */
+    background-position: center; /* Center the background image */
+    height: 100vh; /* Full viewport height */
+    position: relative; /* Position for pseudo-element */
+    overflow: hidden; /* Prevent overflow */
+    animation: zoom 20s infinite alternate; /* Animation effect */
+}
+
+.card-container {
+    display: flex;
+    justify-content: space-around; /* Space cards evenly */
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    margin-top: 20px; /* Space above cards */
+    position: relative; /* Position for stacking context */
+    z-index: 1; /* Ensure cards are above the background */
+}
+
+/* Keyframes for zoom effect */
+@keyframes zoom {
+    0% {
+        transform: scale(1); /* Start at normal size */
+    }
+    100% {
+        transform: scale(1.05); /* Zoom in slightly */
+    }
+}
+
+/* Optional: Add a pseudo-element for overlay */
+.about::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.5); /* Light overlay */
+    z-index: 0; /* Behind the content */
+}
+
+/* About.css */
+.card-item {
+    width: auto; /* Adjust width */
+    height: 300px; /* Adjust height */
+}

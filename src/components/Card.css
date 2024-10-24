@@ -1,0 +1,34 @@
+/* src/components/Card.css */
+
+.card {
+    background-color: #FFFFFF; /* White background */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    overflow: hidden; /* Prevent overflow */
+    transition: transform 0.3s, box-shadow 0.3s; /* Animation on hover */
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
+.card:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2); /* Deeper shadow on hover */
+}
+
+.card-image {
+    width: 100%; /* Full width */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.card-content {
+    padding: 20px; /* Padding inside the card */
+}
+
+.card-title {
+    font-size: 1.5em; /* Title size */
+    color: #050DEB; /* Main color */
+}
+
+.card-description {
+    color: #666; /* Description color */
+    margin-top: 10px; /* Space above description */
+}
