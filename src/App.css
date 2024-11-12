@@ -9,15 +9,16 @@
 
 body {
   font-family: 'Arial', sans-serif; /* Use a modern font */
-  background-color: #f4f4f4; /* Light background */
+  background-color: #FFD700; /* Goldish background color */
   color: #333; /* Dark text for contrast */
 }
 
 /* App Container */
 .app {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
+  width: 100%; /* Full width */
+  min-height: 100vh; /* Ensure the app takes full height */
+  display: flex;
+  flex-direction: column; /* Stack header, main, and footer */
 }
 
 /* Header Styles */
@@ -73,10 +74,11 @@ button:hover {
 
 /* Main Content */
 .app-main {
-  padding: 20px;
+  flex: 1; /* Allow main to grow */
+  padding: 20px; /* Add padding */
   background-color: #FFFFFF; /* White background for main content */
-  border-radius: 8px; /* Rounded corners */
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  border-radius: 0; /* Remove rounded corners */
+  box-shadow: none; /* Remove shadow */
 }
 
 /* Responsive Design */

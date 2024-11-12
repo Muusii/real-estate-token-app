@@ -1,7 +1,7 @@
 // src/App.js
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
-// import Web3 from 'web3';
+ import Web3 from 'web3';
 import { initWeb3 } from './utils/web3';
 import contractABI from './contractABI';
 import Home from './pages/Home';
@@ -29,12 +29,12 @@ function App() {
         const contractInstance = new web3Instance.eth.Contract(contractABI, CONTRACT_ADDRESS);
         setContract(contractInstance);
 
-        const accounts = await web3Instance.eth.getAccounts();
-        setAccount(accounts[0]);
+        // const accounts = await web3Instance.eth.getAccounts();
+        // setAccount(accounts[0]);
 
-        window.ethereum.on('accountsChanged', (accounts) => {
-          setAccount(accounts[0]);
-        });
+        // window.ethereum.on('accountsChanged', (accounts) => {
+        //   setAccount(accounts[0]);
+        // });
       }
     };
 

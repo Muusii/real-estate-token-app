@@ -7,6 +7,8 @@ import { TracingBeam } from "../components/ui/tracing-beam";
 import { LampContainer } from "../components/ui/lampDemo";
 import AnimatedCard from "../components/AnimatedCard";
 import { image } from "framer-motion/m";
+import '../App.css'; // Import the CSS for the properties page
+
 
 const features = [
   {

@@ -1,3 +1,4 @@
+// src/pages/Dashboard.js
 import React, { useState, useEffect, Suspense } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, Text } from '@react-three/drei';
@@ -35,11 +36,27 @@ function Dashboard({ contract, account, web3 }) {
       return;
     }
     try {
+      // Check if the property exists
+      const property = await contract.methods.properties(propertyId).call();
+      if (!property.id) {
+        alert('Property does not exist.');
+        return;
+      }
+
+      // Check if the amount sent is correct
+      const priceInWei = web3.utils.toWei(property.price.toString(), 'ether');
+      if (web3.utils.toWei(amount, 'ether') < priceInWei) {
+        alert('Insufficient funds. Please send the correct amount.');
+        return;
+      }
+
       await contract.methods.buyToken(propertyId).send({ 
         from: account, 
         value: web3.utils.toWei(amount, 'ether')
       });
       alert('Token purchased successfully!');
+      // Optionally refresh user tokens after purchase
+      setUserTokens([]); // Clear the tokens to refetch
     } catch (error) {
       console.error("Error buying token:", error);
       alert('Error buying token. Check console for details.');
@@ -54,6 +71,8 @@ function Dashboard({ contract, account, web3 }) {
     try {
       await contract.methods.sellToken(tokenId).send({ from: account });
       alert('Token sold successfully!');
+      // Optionally refresh user tokens after sale
+      setUserTokens([]); // Clear the tokens to refetch
     } catch (error) {
       console.error("Error selling token:", error);
       alert('Error selling token. Check console for details.');
@@ -96,7 +115,6 @@ function Dashboard({ contract, account, web3 }) {
           <div className='text-ret-pink'>
             <p className="text-center text-gray-300">You don't own any tokens yet.</p>
             <p className="text-center text-gray-300">Once you own them you will be able to see your ownership here</p>
-
           </div>
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -205,5 +223,4 @@ function Dashboard({ contract, account, web3 }) {
     </div>
   );
 }
-
 export default Dashboard;
